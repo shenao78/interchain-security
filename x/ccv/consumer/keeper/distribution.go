@@ -83,9 +83,9 @@ func (k Keeper) shouldNotifyRewardsToProvider(ctx sdk.Context) bool {
 	return (curHeight - ltbh.Height) >= bpdt
 }
 
-// SendRewardsNotificationToProvider attempts to send to the provider (via IBC)
+// SendRewardsToProvider attempts to send to the provider (via IBC)
 // all the block rewards allocated for the provider
-func (k Keeper) SendRewardsNotificationToProvider(ctx sdk.Context) error {
+func (k Keeper) SendRewardsToProvider(ctx sdk.Context) error {
 	// empty out the toSendToProviderTokens address
 	ch := k.GetDistributionTransmissionChannel(ctx)
 	transferChannel, found := k.channelKeeper.GetChannel(ctx, transfertypes.PortID, ch)
